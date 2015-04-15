@@ -1,0 +1,139 @@
+/* 套用 Normalize.css 进行样式重置 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+/* 清除默认边距，代码来自 html5doctor.com */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* 去掉各 Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 去除默认边框 */
+img, figure {
+    border: 0;
+}
+
+hr {
+    height: 0;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+    list-style: none;
+}
+
+
+
+/* 购物车自定义样式 */
+body {
+	background-color: #f2f2f2;
+	font-family: 'Microsoft Yahei', sans-serif;
+}
+
+#container {
+	margin: 10px auto;
+}
+
+.items-table {
+	width: 100%;
+}
+
+.items-table td {
+	padding: 8px;
+}
+
+.group-title {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+}
+
+.item-info {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+input[type="checkbox"] {
+	width: 15px;
+	width: 15px;
+}
+
+.group-title .g-checked,
+.item-info .i-checked {
+	text-align: center;
+	vertical-align: middle;
+}
+.item-info .i-photo {
+	width: 55px;
+	text-align: center;
+	vertical-align: middle;
+}
+.item-info .i-photo img {
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+}
+.item-info .i-price-and-number {
+	width: 50px;
+	padding-right: 20px;
+	text-align: right;
+}
+
+.item-info .i-price-and-number span:before {
+	content: "$ ";
+}
+
+.item-info .i-price-and-number input[type="text"] {
+	width: 30px;
+	padding: 1px 2px;
+	text-align: center;
+}
+
+.group-title .g-total {
+	width: 120px;
+	text-align: right;
+}
+
+.group-title .g-total span {
+	color: #d9534f;
+}
+.group-title .g-total small {
+	color: #999;
+}
+
+.group-title .g-action-button {
+	padding-right: 20px;
+	text-align: right;
+}
+
+.group-title .g-action-button button {
+	padding: 5px 10px;
+	width: 80px;
+	background-color: #d9534f;
+	border: 1px solid #d43f3a;
+	border-radius: 4px;
+	color: #fff;
+	font-family: 'Microsoft Yahei', sans-serif;
+	font-size: 1.1em;
+}
+
+.fixed {
+	position: fixed;
+	bottom: 0;
+}
