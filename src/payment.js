@@ -1,9 +1,12 @@
 var data = [
 	{ id: 1001, group: "one", name: "山东烟台大苹果", price: "5.0", state: 1 },
-	{ id: 1002, group: "one", name: "火龙果", price: "2.9", state: 0 },
+	{ id: 1002, group: "one", name: "火龙果", price: "2.9", state: 1 },
 	{ id: 1003, group: "one", name: "进口香蕉", price: "2.0", state: 0 },
-	{ id: 1004, group: "two", name: "牛奶", price: "5.0", state: 9 },
-	{ id: 1005, group: "two", name: "青岛啤酒", price: "7.0", state: 9 }
+	{ id: 1004, group: "two", name: "牛奶", price: "5.0", state: 1 },
+	{ id: 1005, group: "two", name: "青岛啤酒", price: "7.0", state: -1 },
+	{ id: 1006, group: "three", name: "汉堡包", price: "2.0", state: 0 },
+	{ id: 1007, group: "three", name: "披萨", price: "5.0", state: 1 },
+	{ id: 1008, group: "four", name: "北京烤鸭", price: "7.0", state: 0 }
 ];
 
 
@@ -25,12 +28,13 @@ var Item = React.createClass({
 	},
 
 	render: function () {
+		var disabled = (this.props.item.state === 1) ? "" : "false";
 		return (
 			<tr className="item-info">
-				<td className="i-checked"><input type="checkbox" id={this.props.item.id} /></td>
+				<td className="i-checked"><input type="checkbox" id={this.props.item.id} disabled={disabled} /></td>
 				<td className="i-photo"><label htmlFor={this.props.item.id}><img src="item-photo.png" /></label></td>
 				<td className="i-name"><label htmlFor={this.props.item.id}>{this.props.item.name}</label></td>
-				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" onChange={this.handleValueChange} /></td>
+				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" onChange={this.handleValueChange} disabled={disabled} /></td>
 			</tr>
 		);
 	}
@@ -49,7 +53,7 @@ var ItemsTable = React.createClass({
 			lastGroup = item.group;
 		})
 		return (
-			<table className="items-table">
+			<table className="items-table good-list">
 			{rows}
 			</table>
 		);

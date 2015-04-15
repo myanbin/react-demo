@@ -54,6 +54,9 @@ body {
 .items-table {
 	width: 100%;
 }
+.good-list {
+	margin-bottom: 80px;
+}
 
 .items-table td {
 	padding: 8px;
@@ -68,6 +71,7 @@ body {
 	background-color: #fff;
 	border-bottom: 1px solid #eee;
 }
+
 
 input[type="checkbox"] {
 	width: 15px;
