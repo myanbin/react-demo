@@ -58,7 +58,7 @@ var BottomBar = React.createClass({
 			<table className="items-table fixed">
 				<tr className="group-title">
 					<td className="g-checked"><input type="checkbox" id="all-check" /></td>
-					<td colSpan="2"><label htmlFor="all-check">选择所有商品</label></td>
+					<td colSpan="2"><label htmlFor="all-check">全选</label></td>
 					<td className="g-action-button"><button>删除</button></td>
 				</tr>
 			</table>

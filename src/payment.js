@@ -15,7 +15,7 @@ var Group = React.createClass({
 	render: function () {
 		return (
 			<tr className="group-title">
-				<td className="g-checked"><input type="checkbox" /></td>
+				<td className="check-box"><div className="g-checked"><input type="checkbox" /><span></span></div></td>
 				<td colSpan="3">专场 {this.props.groupName}</td>
 			</tr>
 		);
@@ -23,18 +23,24 @@ var Group = React.createClass({
 });
 
 var Item = React.createClass({
+
+	getInitialState: function () {
+		return {totalPrice: 0};
+	},
+
 	handleValueChange: function (e) {
 		console.log(e.target.value * this.props.item.price);
+		this.setState({totalPrice: e.target.value * this.props.item.price});
 	},
 
 	render: function () {
 		var disabled = (this.props.item.state === 1) ? "" : "false";
 		return (
 			<tr className="item-info">
-				<td className="i-checked"><input type="checkbox" id={this.props.item.id} disabled={disabled} /></td>
+				<td className="check-box"><div className="g-checked"><input type="checkbox" id={this.props.item.id} disabled={disabled} /><span></span></div></td>
 				<td className="i-photo"><label htmlFor={this.props.item.id}><img src="item-photo.png" /></label></td>
 				<td className="i-name"><label htmlFor={this.props.item.id}>{this.props.item.name}</label></td>
-				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" onChange={this.handleValueChange} disabled={disabled} /></td>
+				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" onChange={this.handleValueChange.bind(null, '')} disabled={disabled} /></td>
 			</tr>
 		);
 	}
@@ -66,9 +72,9 @@ var BottomBar = React.createClass({
 		return (
 			<table className="items-table fixed">
 				<tr className="group-title">
-					<td className="g-checked"><input type="checkbox" id="all-check" /></td>
-					<td><label htmlFor="all-check">选择所有商品</label></td>
-					<td className="g-total">合计：<span>12.9</span> 元<br /><small>不含运费</small></td>
+					<td className="check-box"><div className="g-checked"><input type="checkbox" id="all-check" /><span></span></div></td>
+					<td><label htmlFor="all-check">全选</label></td>
+					<td className="g-total">合计：<span>12.7</span> 元<br /><small>不含运费</small></td>
 					<td className="g-action-button"><button>结算</button></td>
 				</tr>
 			</table>
@@ -79,9 +85,7 @@ var BottomBar = React.createClass({
 
 var PaymentUI = React.createClass({
 	getInitialState: function () {
-		return {
-			tp: 0
-		};
+		return {tp: 0};
 	},
 
 	render: function () {

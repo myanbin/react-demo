@@ -62,27 +62,57 @@ body {
 	padding: 8px;
 }
 
-.group-title {
+.items-table .group-title {
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 }
 
-.item-info {
+.items-table .item-info {
 	background-color: #fff;
 	border-bottom: 1px solid #eee;
 }
 
-
-input[type="checkbox"] {
-	width: 15px;
-	width: 15px;
+.items-table .check-box {
+	padding-left: 15px;
+	width: 22px;
 }
 
-.group-title .g-checked,
-.item-info .i-checked {
-	text-align: center;
-	vertical-align: middle;
+.g-checked,
+.i-checked {
+	position: relative;
+	margin: auto;
 }
+
+/* 自定义 checkbox 样式 */
+
+.g-checked input[type="checkbox"],
+.i-checked input[type="checkbox"] {
+	opacity: 0;
+	margin: 0;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.g-checked span,
+.i-checked span {
+	display: block;
+	width: 22px;
+	height: 22px;
+	background: url('../checkbox-red.png') no-repeat -24px 0;
+}
+.g-checked input[type="checkbox"]:disabled + span,
+.i-checked input[type="checkbox"]:disabled + span {
+	background-position: -72px 0;
+}
+.g-checked input[type="checkbox"]:checked + span,
+.i-checked input[type="checkbox"]:checked + span {
+	background-position: -48px 0;
+}
+
+/* 商品列表样式 */
 .item-info .i-photo {
 	width: 55px;
 	text-align: center;
@@ -107,8 +137,12 @@ input[type="checkbox"] {
 	width: 30px;
 	padding: 1px 2px;
 	text-align: center;
+	border: 1px solid #999;
+	border-radius: 2px;
 }
-
+.item-info .i-price-and-number input[type="text"]:disabled {
+	background-color: #f2f2f2;
+}
 .group-title .g-total {
 	width: 120px;
 	text-align: right;
@@ -123,7 +157,9 @@ input[type="checkbox"] {
 
 .group-title .g-action-button {
 	padding-right: 20px;
+	width: 80px;
 	text-align: right;
+	vertical-align: middle;
 }
 
 .group-title .g-action-button button {
