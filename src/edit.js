@@ -24,22 +24,13 @@ var Group = React.createClass({
 
 var Item = React.createClass({
 
-	getInitialState: function () {
-		return {totalPrice: 0};
-	},
-
-	handleValueChange: function (e) {
-		this.setState({totalPrice: e.target.value * this.props.item.price});
-	},
-
 	render: function () {
-		var disabled = (this.props.item.state === 1) ? "" : "false";
 		return (
 			<tr className="item-info">
-				<td className="check-box"><div className="g-checked"><input type="checkbox" id={this.props.item.id} disabled={disabled} /><span></span></div></td>
+				<td className="check-box"><div className="g-checked"><input type="checkbox" id={this.props.item.id} /><span></span></div></td>
 				<td className="i-photo"><label htmlFor={this.props.item.id}><img src="item-photo.png" /></label></td>
 				<td className="i-name"><label htmlFor={this.props.item.id}>{this.props.item.name.slice(0, 18)}</label></td>
-				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" defaultValue="1" onChange={this.handleValueChange} disabled={disabled} /></td>
+				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" defaultValue="1" disabled /></td>
 			</tr>
 		);
 	}
