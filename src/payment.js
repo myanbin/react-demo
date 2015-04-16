@@ -1,5 +1,5 @@
 var data = [
-	{ id: 1001, group: "one", name: "山东烟台大苹果", price: "5.0", state: 1 },
+	{ id: 1001, group: "one", name: "山东烟台大苹果，又甜又脆", price: "5.0", state: 1 },
 	{ id: 1002, group: "one", name: "火龙果", price: "2.9", state: 1 },
 	{ id: 1003, group: "one", name: "进口香蕉", price: "2.0", state: 0 },
 	{ id: 1004, group: "two", name: "牛奶", price: "5.0", state: 1 },
@@ -29,7 +29,6 @@ var Item = React.createClass({
 	},
 
 	handleValueChange: function (e) {
-		console.log(e.target.value * this.props.item.price);
 		this.setState({totalPrice: e.target.value * this.props.item.price});
 	},
 
@@ -39,14 +38,17 @@ var Item = React.createClass({
 			<tr className="item-info">
 				<td className="check-box"><div className="g-checked"><input type="checkbox" id={this.props.item.id} disabled={disabled} /><span></span></div></td>
 				<td className="i-photo"><label htmlFor={this.props.item.id}><img src="item-photo.png" /></label></td>
-				<td className="i-name"><label htmlFor={this.props.item.id}>{this.props.item.name}</label></td>
-				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" onChange={this.handleValueChange.bind(null, '')} disabled={disabled} /></td>
+				<td className="i-name"><label htmlFor={this.props.item.id}>{this.props.item.name.slice(0, 18)}</label></td>
+				<td className="i-price-and-number"><span>{this.props.item.price}</span><br /><input type="text" defaultValue="1" onChange={this.handleValueChange} disabled={disabled} /></td>
 			</tr>
 		);
 	}
 });
 
 var ItemsTable = React.createClass({
+	componentDidMount: function () {
+		console.log(document.getElementById('all-check'));
+	},
 	render: function () {
 		var rows = [];
 		var lastGroup = null;
@@ -84,14 +86,11 @@ var BottomBar = React.createClass({
 
 
 var PaymentUI = React.createClass({
-	getInitialState: function () {
-		return {tp: 0};
-	},
 
 	render: function () {
 		return (
 			<div className="payment-ui">
-				<ItemsTable items={this.props.data} tp={this.state.tp} />
+				<ItemsTable items={this.props.data} />
 				<BottomBar />
 			</div>
 		);
