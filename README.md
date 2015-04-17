@@ -3,7 +3,8 @@
 ```
  - PaymentUI
    - ItemsTable
-     - Item
+     - Group
+       - Item
    - BottomBar
 ```
 
